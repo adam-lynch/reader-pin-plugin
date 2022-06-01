@@ -71,7 +71,7 @@ export default (ReadwisePluginElement) => ({
           
           const target = document.querySelector('.js_contentFocusIndicator_focusedTarget');
           const targetRect = target.getBoundingClientRect();
-          pinContainer.style.height = Math.min(250, targetRect.height) + 'px';
+          pinContainer.style.height = (Math.min(200, targetRect.height) + 50) + 'px';
           wrapper.style.paddingTop = pinContainer.style.height;
           const content = target.cloneNode(true);
           content.className = '';
