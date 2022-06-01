@@ -21,6 +21,12 @@ export default (ReadwisePluginElement) => ({
         if (isPinned) {
           button.innerText = 'Pin';
           document.getElementById('pin-container')?.remove();
+
+          const wrapper = document.querySelector('#document-reader-root div[class^="_textContentWrapper"]');
+          if (!wrapper) {
+            throw new Error("Can't find wrapper");
+          }
+          wrapper.style.paddingTop = '0px';
         } else {
           button.innerText = 'Unpin';
 
@@ -57,13 +63,16 @@ export default (ReadwisePluginElement) => ({
           if (!wrapper) {
             throw new Error("Can't find wrapper");
           }
-          wrapper.style.paddingTop = '100px';
 
+          
           const rect = wrapper.getBoundingClientRect();
           pinContainer.style.left = `${rect.left}px`;
           pinContainer.style.width = `${rect.width}px`;
-
+          
           const target = document.querySelector('.js_contentFocusIndicator_focusedTarget');
+          const targetRect = target.getBoundingClientRect();
+          pinContainer.style.height = Math.min(100, targetRect.height) + 'px';
+          wrapper.style.paddingTop = height;
           const content = target.cloneNode(true);
           content.className = '';
           content.style.paddingLeft = '30px';
