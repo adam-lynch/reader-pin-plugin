@@ -39,7 +39,7 @@ export default (ReadwisePluginElement) => ({
             top: 0;
 
             padding: 50px 10px 10px;
-            max-height: 200px;
+            max-height: 250px;
 
             overflow-y: auto;
 
@@ -71,7 +71,7 @@ export default (ReadwisePluginElement) => ({
           
           const target = document.querySelector('.js_contentFocusIndicator_focusedTarget');
           const targetRect = target.getBoundingClientRect();
-          pinContainer.style.height = Math.min(100, targetRect.height) + 'px';
+          pinContainer.style.height = Math.min(250, targetRect.height) + 'px';
           wrapper.style.paddingTop = pinContainer.style.height;
           const content = target.cloneNode(true);
           content.className = '';
