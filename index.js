@@ -7,7 +7,7 @@ export default (ReadwisePluginElement) => ({
       button.innerText = 'Pin';
       const rootStyle = document.createElement('style');
       rootStyle.innerText = `
-      button {
+      #pin-button {
         margin-right: 10px;
         border-radius: 8px;
         height: 32px;
@@ -16,6 +16,7 @@ export default (ReadwisePluginElement) => ({
       }
       `;
       this.appendChild(rootStyle);
+      button.id = 'pin-button';
       button.addEventListener('click', () => {
         const isPinned = button.innerText === 'Unpin';
         if (isPinned) {
