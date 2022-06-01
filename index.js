@@ -4,8 +4,6 @@ export default (ReadwisePluginElement) => ({
   Element: class PinPluginElement extends ReadwisePluginElement {
     connectedCallback() {
       const button = document.createElement('button');
-      const listItem = document.createElement('li');
-      listItem.classList.add('subPopoverListItem');
       button.innerText = 'Pin';
       const rootStyle = document.createElement('style');
       rootStyle.innerText = `
@@ -19,8 +17,6 @@ export default (ReadwisePluginElement) => ({
       `;
       this.appendChild(rootStyle);
       button.id = 'pin-button';
-      button.classList.add('subPopoverPopover');
-      listItem.appendChild(button);
       button.addEventListener('click', () => {
         const isPinned = button.innerText === 'Unpin';
         if (isPinned) {
@@ -86,7 +82,7 @@ export default (ReadwisePluginElement) => ({
         }
 
       });
-      this.appendChild(listItem);
+      this.appendChild(button);
     }
 
     disconnectedCallback() {
