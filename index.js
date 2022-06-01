@@ -53,7 +53,7 @@ export default (ReadwisePluginElement) => ({
         `;
           pinContainer.appendChild(style);
 
-          const wrapper = document.querySelector<HTMLElement>('#document-reader-root div[class^="_textContentWrapper"]');
+          const wrapper = document.querySelector('#document-reader-root div[class^="_textContentWrapper"]');
           if (!wrapper) {
             throw new Error("Can't find wrapper");
           }
@@ -63,7 +63,7 @@ export default (ReadwisePluginElement) => ({
           pinContainer.style.left = `${rect.left}px`;
           pinContainer.style.width = `${rect.width}px`;
 
-          const target = document.querySelector<HTMLElement>('.js_contentFocusIndicator_focusedTarget');
+          const target = document.querySelector('.js_contentFocusIndicator_focusedTarget');
           const content = target.cloneNode(true);
           content.className = '';
           content.style.paddingLeft = '30px';
